@@ -16,18 +16,18 @@ struct GeneralSettingsScreen: View {
             Form {
                 ForEach(viewModel.sections, id: \.self) { section in
                     Section {
-                            ForEach(section, id: \.self) { item in
+                        ForEach(section, id: \.self) { item in
 
-                                if item.canNavigate {
-                                    NavigationLink(value: item) {
-                                        Text(item.title)
-
-                                    }
-                                } else {
+                            if item.canNavigate {
+                                NavigationLink(value: item) {
                                     Text(item.title)
-                                        .foregroundStyle(item.textColor)
                                 }
+                            } else {
+                                Text(item.title)
+                                    .foregroundStyle(item.textColor)
                             }
+
+                        }
                     }
                 }
             }
